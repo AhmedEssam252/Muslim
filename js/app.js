@@ -2,14 +2,14 @@ const container = document.querySelector(".container")
 const coffees = [
   { name: "tele1", image: "https://www.youtube.com/embed/4GCH7_Gj0ro" },
   { name: "tele2", image: "https://www.youtube.com/embed/NxSU6fcQmPs" },
-  { name: "bg1", image: "videos/video.mp4" },
-  { name: "bg2", image: "videos/video2.mp4" },
-  { name: "bg3", image: "videos/video3.mp4" },
-  { name: "logo1", image: "img/muslim-logo2-0١.png" },
-  { name: "logo2", image: "img/muslim-logo1-0١.png" },
-  { name: "sunna", image: "img/Sunna.webp" },
-  { name: "quran", image: "img/quran.png" },
-  { name: "pray", image: "img/مصلية.svg"},
+  { name: "bg1", image: "https://ahmedessam252.github.io/Muslim/videos/video.mp4" },
+  { name: "bg2", image: "https://ahmedessam252.github.io/Muslim/videos/video2.mp4" },
+  { name: "bg3", image: "https://ahmedessam252.github.io/Muslim/videos/video3.mp4" },
+  { name: "logo1", image: "https://ahmedessam252.github.io/Muslim/img/muslim-logo2-0١.png" },
+  { name: "logo2", image: "https://ahmedessam252.github.io/Muslim/img/muslim-logo1-0١.png" },
+  { name: "sunna", image: "https://ahmedessam252.github.io/Muslim/img/Sunna.webp" },
+  { name: "quran", image: "https://ahmedessam252.github.io/Muslim/img/quran.png" },
+  { name: "pray", image: "https://ahmedessam252.github.io/Muslim/img/مصلية.svg"},
 ]
 
 const showCoffees = () => {
@@ -162,7 +162,7 @@ const showCoffees = () => {
         <div id="container">
             <div id="title">
                 <h1>السبحة</h1>
-                <img src="img/سبحة-0١.svg" alt="">
+                <img src="https://ahmedessam252.github.io/Muslim/img/سبحة-0١.svg" alt="">
             </div>
             <div class="lines">
                 <div class="line"></div>
@@ -243,9 +243,9 @@ const showCoffees = () => {
     <section id="quran">
          <div id="container">
               <div id="title">
-                    <img src="img/مصحف-0١.svg" width="150" height="114" alt="مصحف">
+                    <img src="https://ahmedessam252.github.io/Muslim/img/مصحف-0١.svg" width="150" height="114" alt="مصحف">
                     <h1>القرأن الكريم</h1>
-                    <img src="img/مصحف-0١.svg" width="150" height="114" alt="مصحف">
+                    <img src="https://ahmedessam252.github.io/Muslim/img/مصحف-0١.svg" width="150" height="114" alt="مصحف">
               </div>
               <div id="content">
                   <div id="read">
