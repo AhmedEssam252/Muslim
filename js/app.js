@@ -2,14 +2,14 @@ const container = document.querySelector(".container")
 const coffees = [
   { name: "tele1", image: "https://www.youtube.com/embed/4GCH7_Gj0ro" },
   { name: "tele2", image: "https://www.youtube.com/embed/NxSU6fcQmPs" },
-  { name: "bg1", image: "https://ahmedessam252.github.io/Muslim/videos/video.mp4" },
-  { name: "bg2", image: "https://ahmedessam252.github.io/Muslim/videos/video2.mp4" },
-  { name: "bg3", image: "https://ahmedessam252.github.io/Muslim/videos/video3.mp4" },
+  { name: "bg1",   image: "https://ahmedessam252.github.io/Muslim/videos/video.mp4" },
+  { name: "bg2",   image: "https://ahmedessam252.github.io/Muslim/videos/video2.mp4" },
+  { name: "bg3",   image: "https://ahmedessam252.github.io/Muslim/videos/video3.mp4" },
   { name: "logo1", image: "https://ahmedessam252.github.io/Muslim/img/muslim-logo2-0١.png" },
   { name: "logo2", image: "https://ahmedessam252.github.io/Muslim/img/muslim-logo1-0١.png" },
-  { name: "sunna", image: "https://ahmedessam252.github.io/Muslim/img/Sunna.webp" },
-  { name: "quran", image: "https://ahmedessam252.github.io/Muslim/img/quran.png" },
-  { name: "pray", image: "https://ahmedessam252.github.io/Muslim/img/مصلية.svg"},
+  { name: "sunna1", image: "https://ahmedessam252.github.io/Muslim/img/Sunna.webp" },
+  { name: "quran2", image: "https://ahmedessam252.github.io/Muslim/img/quran.png" },
+  { name: "pray",  image: "https://ahmedessam252.github.io/Muslim/img/مصلية.svg"},
 ]
 
 const showCoffees = () => {
