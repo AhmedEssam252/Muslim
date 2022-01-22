@@ -1,11 +1,9 @@
 const Muslim = "Muslim";
 const assets = [
-  "/",
+  "https://ahmedessam252.github.io/Muslim/",
   "https://ahmedessam252.github.io/Muslim/index.html",
   "https://ahmedessam252.github.io/Muslim/css/style.css",
   "https://ahmedessam252.github.io/Muslim/js/app.js",
-  // "https://www.youtube.com/embed/4GCH7_Gj0ro",
-  // "https://www.youtube.com/embed/NxSU6fcQmPs",
   "https://ahmedessam252.github.io/Muslim/videos/video.mp4",
   "https://ahmedessam252.github.io/Muslim/videos/video2.mp4",
   "https://ahmedessam252.github.io/Muslim/videos/video3.mp4",
