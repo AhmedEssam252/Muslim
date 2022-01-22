@@ -459,7 +459,7 @@ button {
       #pray-timer #container #timers .time {
         width: 80%;
         height: 200px;
-        background: #707070 url(/img/الفجر-0١.webp) no-repeat center center/cover;
+        background: #707070;
         position: relative;
         border-radius: 20px;
         display: grid;
@@ -483,17 +483,17 @@ button {
         z-index: 1;
         border-radius: 20px; }
       #pray-timer #container #timers .time1 {
-        background: #707070 url(/img/الفجر-0١.webp) no-repeat center center/cover; }
+        background: #707070 url(https://ahmedessam252.github.io/Muslim/img/الفجر-0١.webp) no-repeat center center/cover; }
       #pray-timer #container #timers .time2 {
-        background: #707070 url(/img/شروق-0١.webp) no-repeat center center/cover; }
+        background: #707070 url(https://ahmedessam252.github.io/Muslim/img/شروق-0١.webp) no-repeat center center/cover; }
       #pray-timer #container #timers .time3 {
-        background: #707070 url(/img/الظهر-0١.webp) no-repeat center center/cover; }
+        background: #707070 url(https://ahmedessam252.github.io/Muslim/img/الظهر-0١.webp) no-repeat center center/cover; }
       #pray-timer #container #timers .time4 {
-        background: #707070 url(/img/العصر-0١.webp) no-repeat center center/cover; }
+        background: #707070 url(https://ahmedessam252.github.io/Muslim/img/العصر-0١.webp) no-repeat center center/cover; }
       #pray-timer #container #timers .time5 {
-        background: #707070 url(/img/غروب-0١.webp) no-repeat center center/cover; }
+        background: #707070 url(https://ahmedessam252.github.io/Muslim/img/غروب-0١.webp) no-repeat center center/cover; }
       #pray-timer #container #timers .time6 {
-        background: #707070 url(/img/العشاء-0١.webp) no-repeat center center/cover; }
+        background: #707070 url(https://ahmedessam252.github.io/Muslim/img/العشاء-0١.webp) no-repeat center center/cover; }
 
 @media (max-width: 760px) {
   #pray-timer #container #filter h1 {
@@ -546,7 +546,7 @@ button {
       position: absolute;
       top: -150px;
       left: 50%;
-      background: url(/img/جمل-0١.svg) no-repeat center;
+      background: url(https://ahmedessam252.github.io/Muslim/img/جمل-0١.svg) no-repeat center;
       width: 120px;
       height: 120px;
       z-index: 3;
@@ -878,7 +878,7 @@ button {
       width: 100%;
       margin-top: 100px; }
       #quran #container #content #listen {
-        background: url(/img/b2-0١.webp) no-repeat center/cover;
+        background: url(https://ahmedessam252.github.io/Muslim/img/b2-0١.webp) no-repeat center/cover;
         width: 100%;
         height: 300px;
         margin: 0 20px 0 20px; }
@@ -894,7 +894,7 @@ button {
             color: #fff;
             height: 100%; }
       #quran #container #content #read {
-        background: url(/img/b1-0١.webp) no-repeat center/cover;
+        background: url(https://ahmedessam252.github.io/Muslim/img/b1-0١.webp) no-repeat center/cover;
         width: 100%;
         height: 300px; }
         #quran #container #content #read #cover {
