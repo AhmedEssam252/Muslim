@@ -213,7 +213,7 @@ const showCoffees = () => {
         </div>
         <div id="sebha-nums">
             <input type="text" id="number1" value="-1325"  disabled style="display: none;">
-            <form action="index2.html" id="sebha-result">
+            <form id="sebha-result">
                 <div id="group">
                     <div>
                         <label for="number2">عدد التسبيح في الدورة</label>
