@@ -261,11 +261,6 @@ const showCoffees = () => {
               </div>
          </div>
     </section>
-<select id="sebha-text">
-    <option value="سبحان الله"> سبحان الله</option>
-    <option value="الحمد لله">الحمد لله</option>
-    <option value="الله واكبر">الله واكبر</option>
-</select>
                 `;
 
     container.innerHTML = output
