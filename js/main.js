@@ -155,8 +155,7 @@ function incValue2(){
        document.getElementById('number2').value= 1;
        document.getElementById('number3').value++;
     }
-//     incValue3()
-    incValue4()    
+    incValue3()
 }
 
 // function incValue3(){
@@ -164,7 +163,7 @@ function incValue2(){
 //     value = isNaN(value) ? 0 : value;
 //     value ++;
 //     document.getElementById('number4').value = value;
-//     incValue4()
+    incValue4()
 // }
 // 
 function incValue4(){
