@@ -1,4 +1,4 @@
-const muslim = "muslim "
+const Muslim = "Muslim";
 const assets = [
   "/",
   "index.html",
@@ -18,7 +18,7 @@ const assets = [
 
 self.addEventListener("install", installEvent => {
   installEvent.waitUntil(
-    caches.open(muslim).then(cache => {
+    caches.open(Muslim).then(cache => {
       cache.addAll(assets)
     })
   );
