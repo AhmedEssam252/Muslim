@@ -183,7 +183,7 @@ function saveNumSebha(){
     let number1 = document.getElementById('number1').value;
     localStorage.setItem('number1',number1);
     let number2 = document.getElementById('number2').value;
-    localStorage.setItem('number2',number2 + document.querySelector('#sebha-text').value);
+    localStorage.setItem('number2',number2);
     let number3 = document.getElementById('number3').value;
     localStorage.setItem('number3',number3);
 
