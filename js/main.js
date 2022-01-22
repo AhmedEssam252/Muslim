@@ -155,17 +155,17 @@ function incValue2(){
        document.getElementById('number2').value= 1;
        document.getElementById('number3').value++;
     }
-    incValue3()
+//     incValue3()
     
 }
 
-function incValue3(){
-    let value = parseInt(document.getElementById('number4').value);
-    value = isNaN(value) ? 0 : value;
-    value ++;
-    document.getElementById('number4').value = value;
-    incValue4()
-}
+// function incValue3(){
+//     let value = parseInt(document.getElementById('number4').value);
+//     value = isNaN(value) ? 0 : value;
+//     value ++;
+//     document.getElementById('number4').value = value;
+//     incValue4()
+// }
 // 
 function incValue4(){
     let value = parseInt(document.getElementById('number5').value);
@@ -176,8 +176,8 @@ function incValue4(){
 
 // add nums ti local storage in sebha
 function saveNumSebha(){
-    let number4 = document.getElementById('number4').value;
-    localStorage.setItem('number4',number4);
+//     let number4 = document.getElementById('number4').value;
+//     localStorage.setItem('number4',number4);
     let number5 = document.getElementById('number5').value;
     localStorage.setItem('number5',number5);
     let number1 = document.getElementById('number1').value;
@@ -190,7 +190,7 @@ function saveNumSebha(){
 }
 // take value from local storage in sebha
 if(localStorage.length > 0){
-    document.getElementById('number4').value = localStorage.number4;
+//     document.getElementById('number4').value = localStorage.number4;
     document.getElementById('number5').value = localStorage.number5;
     document.getElementById('number1').value = localStorage.number1;
     document.getElementById('number2').value = localStorage.number2;
