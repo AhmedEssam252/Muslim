@@ -14,7 +14,7 @@ selects.forEach((select)=>{
         // asynchronous function to fetch data from aladahn.com abote date and pray time 
         let country = document.querySelector("#country").value;
         let city = document.querySelector("#city").value;
-        let api1 = `http://api.aladhan.com/v1/calendarByCity?city=${city}&country=${country}&method=5&month=${month}&year=${year}`;
+        let api1 = `https://api.aladhan.com/v1/calendarByCity?city=${city}&country=${country}&method=5&month=${month}&year=${year}`;
         console.log(api1);
         // apiStorage(country,city,api1);
         async function getData1(){
