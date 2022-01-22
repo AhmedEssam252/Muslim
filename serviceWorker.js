@@ -1,19 +1,19 @@
 const Muslim = "Muslim";
 const assets = [
   "/",
-  "index.html",
-  "css/style.css",
-  "js/app.js",
+  "https://ahmedessam252.github.io/Muslim/index.html",
+  "https://ahmedessam252.github.io/Muslim/css/style.css",
+  "https://ahmedessam252.github.io/Muslim/js/app.js",
   // "https://www.youtube.com/embed/4GCH7_Gj0ro",
   // "https://www.youtube.com/embed/NxSU6fcQmPs",
-  "videos/video.mp4",
-  "videos/video2.mp4",
-  "videos/video3.mp4",
-  "img/muslim-logo2-0١.png",
-  "img/muslim-logo1-0١.png",
-  "img/Sunna.webp",
-  "img/quran.png",
-  "img/مصلية.svg",
+  "https://ahmedessam252.github.io/Muslim/videos/video.mp4",
+  "https://ahmedessam252.github.io/Muslim/videos/video2.mp4",
+  "https://ahmedessam252.github.io/Muslim/videos/video3.mp4",
+  "https://ahmedessam252.github.io/Muslim/img/muslim-logo2-0١.png",
+  "https://ahmedessam252.github.io/Muslim/img/muslim-logo1-0١.png",
+  "https://ahmedessam252.github.io/Muslim/img/Sunna.webp",
+  "https://ahmedessam252.github.io/Muslim/img/quran.png",
+  "https://ahmedessam252.github.io/Muslim/img/مصلية.svg",
 ];
 
 self.addEventListener("install", installEvent => {
