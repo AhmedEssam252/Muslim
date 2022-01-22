@@ -156,7 +156,7 @@ function incValue2(){
        document.getElementById('number3').value++;
     }
 //     incValue3()
-    
+    incValue4()    
 }
 
 // function incValue3(){
