@@ -158,14 +158,14 @@ function incValue2(){
     incValue3()
 }
 
-// function incValue3(){
+function incValue3(){
 //     let value = parseInt(document.getElementById('number4').value);
 //     value = isNaN(value) ? 0 : value;
 //     value ++;
 //     document.getElementById('number4').value = value;
     incValue4()
-// }
-// 
+}
+
 function incValue4(){
     let value = parseInt(document.getElementById('number5').value);
     value = isNaN(value) ? 0 : value;
