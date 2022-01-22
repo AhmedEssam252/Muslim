@@ -9,7 +9,6 @@ const assets = [
   "https://ahmedessam252.github.io/Muslim/videos/video3.mp4",
   "https://ahmedessam252.github.io/Muslim/img/muslim-logo2-0١.png",
   "https://ahmedessam252.github.io/Muslim/img/muslim-logo1-0١.png",
-  "https://ahmedessam252.github.io/Muslim/img/Sunna.webp",
   "https://ahmedessam252.github.io/Muslim/img/quran.png",
   "https://ahmedessam252.github.io/Muslim/img/مصلية.svg",
 ];
