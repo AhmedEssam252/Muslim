@@ -12,9 +12,9 @@ function plusSlides(n) {
   //change src on iframe when change logo on slider
   try{
         if(slides[0].style.cssText == "display: block;"){
-            document.querySelector('#television').src="https://www.youtube.com/embed/qK-zm6rcYmA";
+            document.querySelector('#television').src="https://www.youtube.com/embed/-mr6TD6YxR8";
         }else if(slides[1].style.cssText == "display: block;"){
-            document.querySelector('#television').src="https://www.youtube.com/embed/Jrn0OdQxuyg";
+            document.querySelector('#television').src="https://www.youtube.com/embed/HQXhT3cmN7c";
         }else if(slides[2].innerText == "مخصص"){
             let prompt = document.querySelector('#prompt');
             prompt.classList.add("change");
