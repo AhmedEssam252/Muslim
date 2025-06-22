@@ -48,7 +48,7 @@
                 <h1>اختر فيديو</h1>
                 <div id="photos">
                     <video  src="/videos/video.mp4" muted autoplay loop onclick="changeToVideo(this.src)"></video>
-                    <video  src="/videos/video2.mp4" muted autoplay loop onclick="changeToVideo(this.src)"></video>   
+                    <video  src="/videos/video2.mp4" muted autoplay loop onclick="changeToVideo(this.src)"></video>
                     <video  src="/videos/video3.mp4" muted autoplay loop onclick="changeToVideo(this.src)"></video>
                 </div>
             </section>
@@ -63,6 +63,7 @@
                 <div id="navbar">
                     <ul>
                         <li><a href="#pray-timer">مواقيت الصلاة</a></li>
+                        <li><a href="#hijri-calendar">التقويم الهجري</a></li> <!-- Added link to Hijri Calendar -->
                         <li><a href="#zakat">الزكاة</a></li>
                         <li><a href="#sebha">التسبيح</a></li>
                         <li><a href="#quran">القرأن الكريم</a></li>
@@ -138,6 +139,18 @@
                 </select>
             </div>
             <div id="timers"></div>
+        </div>
+    </section>
+
+    <!-- Hijri Calendar -->
+    <section id="hijri-calendar">
+        <div id="container">
+            <div id="title">
+                <h1>التقويم الهجري</h1>
+            </div>
+            <div id="calendar-container">
+                <!-- Calendar will be loaded here by JavaScript -->
+            </div>
         </div>
     </section>
 
@@ -252,13 +265,13 @@
                 <div>
                     <label for="number5">اجمالي التسبيح </label>
                     <input type="text" id="number5" name="number5"  value="0" disabled>
-                </div>  
+                </div>
             </div>
         </form>
 
     </div>
 </section>
- 
+
     <section id="quran">
          <div id="container">
               <div id="title">
@@ -285,6 +298,7 @@
     <option value="الحمد لله">الحمد لله</option>
     <option value="الله واكبر">الله واكبر</option>
 </select> -->
+    <script src="js/hijrah-date.js"></script> <!-- Added HijrahDate library -->
     <script src="js/main.js" defer async></script>
     <script src="js/api.js" defer async></script>
 </body>

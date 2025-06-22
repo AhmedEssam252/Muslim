@@ -195,3 +195,111 @@ if(localStorage.length > 0){
     document.getElementById('number2').value = localStorage.number2;
     document.getElementById('number3').value = localStorage.number3;
 }
+
+//<------------------------------------------------------------------------------ Hijri Calendar ---------------------------------------------------------------- >
+
+const calendarContainerHC = document.getElementById('calendar-container'); // Renamed to avoid conflict if 'calendarContainer' is used elsewhere
+let currentDisplayedHijriDate; // Stores the HijrahDate object for the currently displayed month
+
+// Helper function to get the number of days in a Hijri month
+function getHijriMonthLength(year, month) {
+    // HijrahDate month is 0-indexed in constructor but 1-indexed for getMonth()
+    // The library's getMonthLength should handle this.
+    // We need to create a date in that month to call getMonthLength.
+    return new HijrahDate(year, month -1, 1).getMonthLength();
+}
+
+// Helper function to get the day of the week for the first day of a Hijri month (0 for Sunday, 1 for Monday, etc.)
+function getFirstDayOfWeekHijri(year, month) {
+    const firstDayHijri = new HijrahDate(year, month - 1, 1);
+    const gregorianEquivalent = firstDayHijri.toGregorian();
+    return gregorianEquivalent.getDay(); // 0 for Sunday, 1 for Monday...
+}
+
+function renderHijriCalendar(hijriDateToShow) {
+    if (!calendarContainerHC) {
+        console.error("Hijri Calendar container not found in the DOM.");
+        return;
+    }
+    calendarContainerHC.innerHTML = '<p>جارٍ تحميل التقويم...</p>';
+
+    try {
+        const year = hijriDateToShow.getFullYear();
+        const month = hijriDateToShow.getMonth() +1; // getMonth is 0-indexed, display is 1-indexed
+        const today = new HijrahDate(); // Current Hijri date
+
+        // Month name and year
+        // The format 'ar' should give Arabic month names.
+        const monthName = hijriDateToShow.format('MMMM', 'ar');
+        const yearNumber = hijriDateToShow.format('yyyy', 'ar');
+
+        let html = `
+            <div class="calendar-header">
+                <button id="prev-hijri-month">الشهر السابق</button>
+                <span id="hijri-month-year">${monthName} ${yearNumber}</span>
+                <button id="next-hijri-month">الشهر التالي</button>
+            </div>
+            <div class="calendar-days">
+                <div>الأحد</div><div>الإثنين</div><div>الثلاثاء</div><div>الأربعاء</div><div>الخميس</div><div>الجمعة</div><div>السبت</div>
+            </div>
+            <div class="calendar-dates">
+        `;
+
+        const daysInMonth = getHijriMonthLength(year, month);
+        const firstDayOfWeek = getFirstDayOfWeekHijri(year, month);
+
+        // Add empty cells for days before the first of the month
+        for (let i = 0; i < firstDayOfWeek; i++) {
+            html += `<div class="empty"></div>`;
+        }
+
+        // Add date cells
+        for (let day = 1; day <= daysInMonth; day++) {
+            let todayClass = '';
+            if (year === today.getFullYear() && (month-1) === today.getMonth() && day === today.getDate()) {
+                todayClass = 'today';
+            }
+            // Format day to Arabic numerals if needed by library, default is Western.
+            // The library might not directly support Arabic numerals for day numbers in format.
+            // For now, we'll use the standard day number.
+            html += `<div class="${todayClass}">${day}</div>`;
+        }
+
+        html += `</div>`; // Close calendar-dates
+        calendarContainerHC.innerHTML = html;
+        currentDisplayedHijriDate = new HijrahDate(hijriDateToShow.getTime()); // Store a copy
+
+        // Add event listeners for navigation buttons
+        document.getElementById('prev-hijri-month').addEventListener('click', () => {
+            const prevMonthDate = new HijrahDate(currentDisplayedHijriDate.getTime()).minusMonths(1);
+            renderHijriCalendar(prevMonthDate);
+        });
+
+        document.getElementById('next-hijri-month').addEventListener('click', () => {
+            const nextMonthDate = new HijrahDate(currentDisplayedHijriDate.getTime()).plusMonths(1);
+            renderHijriCalendar(nextMonthDate);
+        });
+
+    } catch (error) {
+        console.error("Error rendering Hijri calendar with hijrah-date:", error);
+        if (calendarContainerHC) {
+            calendarContainerHC.innerHTML = `<p style="color: red;">حدث خطأ أثناء عرض التقويم الهجري.</p><p>${error.message}</p>`;
+        }
+    }
+}
+
+// Initialize calendar on page load
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof HijrahDate === 'undefined') {
+        console.error("HijrahDate library not loaded.");
+        if (calendarContainerHC) {
+            calendarContainerHC.innerHTML = `<p style="color: red;">مكتبة التقويم الهجري لم يتم تحميلها.</p>`;
+        }
+        return;
+    }
+    if (document.getElementById('hijri-calendar')) {
+        const nowGregorian = new Date();
+        currentDisplayedHijriDate = new HijrahDate(nowGregorian); // Convert current Gregorian date to Hijri
+        renderHijriCalendar(currentDisplayedHijriDate);
+    }
+});
