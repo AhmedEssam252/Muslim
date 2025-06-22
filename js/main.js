@@ -195,3 +195,139 @@ if(localStorage.length > 0){
     document.getElementById('number2').value = localStorage.number2;
     document.getElementById('number3').value = localStorage.number3;
 }
+
+//<------------------------------------------------------------------------------ Hijri Calendar ---------------------------------------------------------------- >
+
+const calendarContainer = document.getElementById('calendar-container');
+let currentHijriYear;
+let currentHijriMonth;
+
+async function fetchHijriCalendar(year, month) {
+    const today = new Date();
+    const gregorianDay = today.getDate();
+    const gregorianMonth = today.getMonth() + 1; // JavaScript months are 0-indexed
+    const gregorianYear = today.getFullYear();
+
+    // If year and month are not provided, fetch current Hijri date first
+    if (!year || !month) {
+        try {
+            const initialResponse = await fetch(`http://api.aladhan.com/v1/gToH?date=${gregorianDay}-${gregorianMonth}-${gregorianYear}`);
+            if (!initialResponse.ok) {
+                throw new Error(`HTTP error! status: ${initialResponse.status}`);
+            }
+            const initialData = await initialResponse.json();
+            if (initialData.code === 200) {
+                currentHijriYear = initialData.data.hijri.year;
+                currentHijriMonth = initialData.data.hijri.month.number;
+                year = currentHijriYear;
+                month = currentHijriMonth;
+            } else {
+                throw new Error('Failed to fetch initial Hijri date.');
+            }
+        } catch (error) {
+            console.error("Error fetching initial Hijri date:", error);
+            if (calendarContainer) {
+                 calendarContainer.innerHTML = `<p style="color: red;">حدث خطأ أثناء تحميل التقويم. يرجى المحاولة مرة أخرى في وقت لاحق.</p><p>${error.message}</p>`;
+            }
+            return;
+        }
+    }
+
+    if (!calendarContainer) {
+        console.error("Calendar container not found in the DOM.");
+        return;
+    }
+
+    calendarContainer.innerHTML = '<p>جارٍ تحميل التقويم...</p>'; // Loading message
+
+    try {
+        const response = await fetch(`http://api.aladhan.com/v1/hijriCalendar?year=${year}&month=${month}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        if (data.code === 200) {
+            renderCalendar(data.data, year, month, gregorianDay, gregorianMonth, gregorianYear);
+            currentHijriYear = year; // Update current year and month after successful fetch
+            currentHijriMonth = month;
+        } else {
+            throw new Error(data.status || 'Failed to load calendar data.');
+        }
+    } catch (error) {
+        console.error("Error fetching Hijri calendar data:", error);
+        calendarContainer.innerHTML = `<p style="color: red;">حدث خطأ أثناء تحميل التقويم. يرجى المحاولة مرة أخرى في وقت لاحق.</p><p>${error.message}</p>`;
+    }
+}
+
+function renderCalendar(data, year, month, currentGregDay, currentGregMonth, currentGregYear) {
+    if (!calendarContainer) return;
+
+    const monthName = data[0]?.date.hijri.month.ar || "الشهر"; // Fallback month name
+    const yearNumber = data[0]?.date.hijri.year || year;
+
+    let html = `
+        <div class="calendar-header">
+            <button id="prev-month">الشهر السابق</button>
+            <span id="hijri-month-year">${monthName} ${yearNumber}</span>
+            <button id="next-month">الشهر التالي</button>
+        </div>
+        <div class="calendar-days">
+            <div>الأحد</div><div>الإثنين</div><div>الثلاثاء</div><div>الأربعاء</div><div>الخميس</div><div>الجمعة</div><div>السبت</div>
+        </div>
+        <div class="calendar-dates">
+    `;
+
+    // Determine the first day of the month
+    const firstDayOfMonth = (new Date(data[0].date.gregorian.date.split('-').reverse().join('-'))).getDay();
+
+    // Add empty cells for days before the first of the month
+    for (let i = 0; i < firstDayOfMonth; i++) {
+        html += `<div class="empty"></div>`;
+    }
+
+    data.forEach(day => {
+        const hijriDay = day.date.hijri.day;
+        let todayClass = '';
+        // Check if this date is the current Gregorian date
+        if (parseInt(day.date.gregorian.day) === currentGregDay &&
+            parseInt(day.date.gregorian.month.number) === currentGregMonth &&
+            parseInt(day.date.gregorian.year) === currentGregYear) {
+            todayClass = 'today';
+        }
+        html += `<div class="${todayClass}">${hijriDay}</div>`;
+    });
+
+    html += `</div>`;
+    calendarContainer.innerHTML = html;
+
+    // Add event listeners for navigation buttons
+    document.getElementById('prev-month').addEventListener('click', () => {
+        let newMonth = month - 1;
+        let newYear = year;
+        if (newMonth < 1) {
+            newMonth = 12;
+            newYear--;
+        }
+        fetchHijriCalendar(newYear, newMonth);
+    });
+
+    document.getElementById('next-month').addEventListener('click', () => {
+        let newMonth = month + 1;
+        let newYear = year;
+        if (newMonth > 12) {
+            newMonth = 1;
+            newYear++;
+        }
+        fetchHijriCalendar(newYear, newMonth);
+    });
+}
+
+// Initialize calendar on page load
+document.addEventListener('DOMContentLoaded', () => {
+    // Ensure this runs after the pray-timer section might also be trying to access date.
+    // It might be better to call this when the section becomes visible or after a slight delay.
+    if (document.getElementById('hijri-calendar')) { // Check if the section exists
+         fetchHijriCalendar();
+    }
+});
